@@ -43,4 +43,25 @@ public class ArrayUtilsTest {
         Predicate<String> predicate = new LineLengthLimit<>(maxLength);
         assertTrue( Arrays.equals(expectation, ArrayUtils.<String>filter(source, predicate)) );
     }
+
+    @Test
+    public void TestFindMiddleElementWithIntegerType() {
+        Integer[] source = {13, 2, 6, 2, 4, 5, 8, 7};
+        Integer expectation = 5;
+        assertEquals(ArrayUtils.<Integer>findMiddleElement(source), expectation);
+    }
+
+    @Test
+    public void TestFindMiddleElementWithDoubleType() {
+        Double[] source = {13.0, 2.0, 6.0, 2.0, 4.0, 5.0, 8.0, 7.0};
+        Double expectation = 5.0;
+        assertEquals(ArrayUtils.<Double>findMiddleElement(source), expectation);
+    }
+
+    @Test
+    public void TestFindMiddleElementWithStringType() {
+        String[] source = {"1", "2", "3", "4", "5", "6", "7"};
+        String expectation = "4";
+        assertEquals(ArrayUtils.<String>findMiddleElement(source), expectation);
+    }
 }

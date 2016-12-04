@@ -23,4 +23,10 @@ public class ArrayUtils {
         }
         return Arrays.copyOf(result, resultNumber);
     }
+
+    public static <T extends Comparable<T>> T findMiddleElement(T[] array) {
+        Arrays.sort(array);
+        int middleIndex = (array.length - 1) / 2;
+        return array[middleIndex];
+    }
 }
