@@ -25,8 +25,12 @@ public class ArrayUtils {
     }
 
     public static <T extends Comparable<T>> T findMiddleElement(T[] array) {
-        Arrays.sort(array);
-        int middleIndex = (array.length - 1) / 2;
-        return array[middleIndex];
+        if (array == null || array.length == 0) {
+            throw new IllegalArgumentException("Массива нет или он пуст.");
+        }
+        T[] copyArray = Arrays.copyOf(array, array.length);
+        Arrays.sort(copyArray);
+        int middleIndex = (copyArray.length - 1) / 2;
+        return copyArray[middleIndex];
     }
 }
